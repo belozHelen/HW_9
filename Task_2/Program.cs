@@ -14,9 +14,15 @@ if ((n <= 0 || n % 1 != 0) || (m <= 0 || m % 1 != 0)) {
     return;
 }
 
-string str = "";
-for (double i = m; i <= n; i++) {
-    str += i + " ";
-}
+Console.WriteLine(m + " " + GetStringResult(n, m, ""));
 
-Console.WriteLine(str);
+string GetStringResult(double num, double iter, string str)
+{
+    iter++;
+
+    if (iter > num) {
+        return str;
+    } 
+
+    return iter + " " + GetStringResult(num, iter, str);
+}
