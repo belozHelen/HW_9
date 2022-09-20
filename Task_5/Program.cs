@@ -11,10 +11,16 @@ if (m > n) {
     return;
 }
 
-string str = "";
+Console.WriteLine(GetStringResult(n, m, ""));
 
-for (int i = m; i <= n; i++) {
-    str += (i - 2) + (i - 1) + " ";
+string GetStringResult(double num, int iter, string str)
+{
+    if (iter > num) {
+        return str;
+    } 
+
+    str += (iter - 2) + (iter - 1) + " ";
+    iter++;
+
+    return GetStringResult(num, iter, str);
 }
-
-Console.WriteLine(str);
