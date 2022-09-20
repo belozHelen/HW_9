@@ -6,9 +6,16 @@ double m = Convert.ToDouble(Console.ReadLine());
 Console.Write("Введите натуральное число N: ");
 double n = Convert.ToDouble(Console.ReadLine());
 
-double sum = 0.0;
-for (double i = m; i <= n; i++) {
-    sum += i;
-}
+Console.WriteLine(GetResult(n, m, 0.0));
 
-Console.WriteLine(sum);
+double GetResult(double num, double iter, double sum)
+{   
+    if (iter > num) {
+        return sum;
+    } 
+
+    sum += iter;
+    iter++;
+
+    return GetResult(num, iter, sum);
+}
